@@ -49,45 +49,45 @@ body{background:#F5F0F7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',
 <div class="wrap">
 
   <div class="brand-area">
-    <div class="brand-dot">&#127769;</div>
-    <div class="brand-name">&#51060;&#54868;&#49324;&#51452;</div>
+    <div class="brand-dot">🌙</div>
+    <div class="brand-name">이화사주</div>
   </div>
 
   <div class="input-card" id="inputCard">
-    <div class="card-title">&#45236; &#51068;&#51452; &#52286;&#44592;</div>
-    <div class="card-sub">&#49373;&#45380;&#50900;&#51068;&#51012; &#51077;&#47141;&#54616;&#47732;<br>&#45208;&#51032; &#51068;&#51452;&#50752; &#44592;&#51656;&#51012; &#50508;&#47140;&#46300;&#47140;&#50836;</div>
+    <div class="card-title">내 일주 찾기</div>
+    <div class="card-sub">생년월일을 입력하면<br>나의 일주와 기질을 알려드려요</div>
     <div class="fields">
-      <div class="field"><label>&#53468;&#50612;&#45238; &#45380;&#46020;</label><input type="number" id="yy" placeholder="1995" min="1900" max="2025"></div>
-      <div class="field"><label>&#50900;</label><input type="number" id="mm" placeholder="3" min="1" max="12"></div>
-      <div class="field"><label>&#51068;</label><input type="number" id="dd" placeholder="15" min="1" max="31"></div>
+      <div class="field"><label>태어난 년도</label><input type="number" id="yy" placeholder="1995" min="1900" max="2025"></div>
+      <div class="field"><label>월</label><input type="number" id="mm" placeholder="3" min="1" max="12"></div>
+      <div class="field"><label>일</label><input type="number" id="dd" placeholder="15" min="1" max="31"></div>
     </div>
-    <button class="calc-btn" onclick="calc()">&#51068;&#51452; &#54869;&#51064;&#54616;&#44592;</button>
+    <button class="calc-btn" onclick="calc()">일주 확인하기</button>
     <div class="err" id="err"></div>
   </div>
 
   <div class="result-wrap" id="resultWrap" style="display:none">
     <div class="res-top">
-      <div class="res-ilju-label">&#45208;&#51032; &#51068;&#51452;</div>
+      <div class="res-ilju-label">나의 일주</div>
       <div class="res-char" id="rChar"></div>
       <div class="res-full" id="rFull"></div>
     </div>
     <div class="res-body">
-      <div class="sec-label">&#44592;&#51656; &amp; &#49457;&#54693;</div>
+      <div class="sec-label">기질 &amp; 성향</div>
       <div class="res-desc" id="rDesc"></div>
-      <div class="sec-label">&#53ค;&#50892;&#46300;</div>
+      <div class="sec-label">키워드</div>
       <div class="kw-row" id="rKws"></div>
       <div class="love-box">
-        <div class="love-label">2026 &#50672;&#50528;&#50868; &#54620;&#51904;</div>
+        <div class="love-label">2026 연애운 한줄</div>
         <div class="love-txt" id="rLove"></div>
       </div>
       <div class="divider"></div>
-      <div class="cta-txt">&#45908; &#51221;&#54869;&#54620; &#49324;&#51452;&#45716; &#53468;&#50612;&#45234; &#49884;&#44036;&#44956;&#51648;<br>&#54632;&#44760; &#48264;&#50500; &#50508; &#49688; &#51080;&#50612;&#50836;</div>
-      <a href="https://sajoo.myblocks.kr" class="cta-btn">1:1 &#49324;&#51452; &#49345;&#45813; &#49888;&#52397;&#54616;&#44592; &rarr;</a>
-      <button class="reset-btn" onclick="reset()">&#45796;&#49884; &#51077;&#47141;&#54616;&#44592;</button>
+      <div class="cta-txt">더 정확한 사주는 태어난 시간까지<br>함께 봐야 알 수 있어요</div>
+      <a href="https://sajoo.myblocks.kr" class="cta-btn">1:1 사주 상담 신청하기 →</a>
+      <button class="reset-btn" onclick="reset()">다시 입력하기</button>
     </div>
   </div>
 
-  <div class="note">* &#53468;&#50612;&#45234; &#49884;&#44036; &#48120;&#54252;&#54632; &#44592;&#51456;&#51060;&#50836;<br>&#51088;&#49884;(&#48260; 11&#49884;~&#49352;&#48263; 1&#49884;) &#52636;&#49373;&#51088;&#45716; &#50724;&#جا&#44032; &#51080;&#50612;&#50836;</div>
+  <div class="note">* 태어난 시간 미포함 기준이에요<br>자시(밤 11시~새벽 1시) 출생자는 오차가 있을 수 있어요</div>
 
 </div>
 </div>
