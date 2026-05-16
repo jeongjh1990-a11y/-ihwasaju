@@ -1,21 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이화사주 - 내 일주 찾기</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-.page{min-height:640px;background:#F5F0F7;padding:2rem 1rem}
+body{background:#F5F0F7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.page{min-height:100vh;padding:2rem 1rem}
 .wrap{max-width:380px;margin:0 auto}
 .brand-area{text-align:center;margin-bottom:1.5rem}
-.brand-dot{width:36px;height:36px;border-radius:50%;background:#FBEAF0;margin:0 auto 7px;display:flex;align-items:center;justify-content:center}
-.brand-dot i{font-size:18px;color:#993556}
+.brand-dot{width:36px;height:36px;border-radius:50%;background:#FBEAF0;margin:0 auto 7px;display:flex;align-items:center;justify-content:center;font-size:18px}
 .brand-name{font-size:11px;letter-spacing:.12em;color:#888780}
 .input-card{background:#fff;border-radius:20px;border:0.5px solid rgba(0,0,0,.07);padding:1.75rem 1.5rem;margin-bottom:10px}
 .card-title{font-size:21px;font-weight:500;color:#2C2C2A;text-align:center;margin-bottom:4px}
 .card-sub{font-size:13px;color:#5F5E5A;text-align:center;line-height:1.65;margin-bottom:1.5rem}
 .fields{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-bottom:12px}
-.field label{font-size:11px;color:#888780;display:block;margin-bottom:5px;padding-left:1px}
+.field label{font-size:11px;color:#888780;display:block;margin-bottom:5px}
 .field input{width:100%;padding:10px 11px;font-size:15px;border-radius:10px;border:0.5px solid rgba(0,0,0,.12);background:#FAF8FB;color:#2C2C2A;outline:none;transition:border-color .15s}
 .field input:focus{border-color:#D4537E}
-.calc-btn{width:100%;padding:13px;font-size:15px;font-weight:500;border:none;border-radius:12px;background:#D4537E;color:#fff;cursor:pointer;letter-spacing:.02em;transition:opacity .15s}
+.calc-btn{width:100%;padding:13px;font-size:15px;font-weight:500;border:none;border-radius:12px;background:#D4537E;color:#fff;cursor:pointer;transition:opacity .15s}
 .calc-btn:hover{opacity:.87}
-.calc-btn:active{opacity:.72}
 .err{font-size:12px;color:#A32D2D;text-align:center;margin-top:8px;min-height:16px}
 .result-wrap{margin-bottom:10px;border-radius:20px;overflow:hidden;border:0.5px solid rgba(0,0,0,.07)}
 .res-top{background:#FBEAF0;padding:1.75rem 1.5rem;text-align:center}
@@ -32,64 +37,65 @@
 .love-txt{font-size:13px;color:#2C2C2A;line-height:1.65}
 .divider{height:0.5px;background:rgba(0,0,0,.07);margin-bottom:1.25rem}
 .cta-txt{font-size:12px;color:#5F5E5A;text-align:center;line-height:1.65;margin-bottom:11px}
-.cta-btn{width:100%;padding:11px;border-radius:11px;border:none;background:#D4537E;color:#fff;font-size:13px;font-weight:500;cursor:pointer;letter-spacing:.02em;transition:opacity .15s;margin-bottom:8px}
+.cta-btn{width:100%;padding:11px;border-radius:11px;background:#D4537E;color:#fff;font-size:13px;font-weight:500;cursor:pointer;display:block;text-align:center;text-decoration:none;margin-bottom:8px}
 .cta-btn:hover{opacity:.87}
-.reset-btn{width:100%;padding:10px;border-radius:11px;border:0.5px solid rgba(0,0,0,.12);background:transparent;color:#5F5E5A;font-size:13px;cursor:pointer;transition:background .15s}
+.reset-btn{width:100%;padding:10px;border-radius:11px;border:0.5px solid rgba(0,0,0,.12);background:transparent;color:#5F5E5A;font-size:13px;cursor:pointer}
 .reset-btn:hover{background:#F5F0F7}
 .note{font-size:11px;color:#888780;text-align:center;line-height:1.65;padding:0 4px}
 </style>
-
+</head>
+<body>
 <div class="page">
 <div class="wrap">
 
   <div class="brand-area">
-    <div class="brand-dot"><i class="ti ti-moon" aria-hidden="true"></i></div>
-    <div class="brand-name">이화사주</div>
+    <div class="brand-dot">&#127769;</div>
+    <div class="brand-name">&#51060;&#54868;&#49324;&#51452;</div>
   </div>
 
   <div class="input-card" id="inputCard">
-    <div class="card-title">내 일주 찾기</div>
-    <div class="card-sub">생년월일을 입력하면<br>나의 일주와 기질을 알려드려요</div>
+    <div class="card-title">&#45236; &#51068;&#51452; &#52286;&#44592;</div>
+    <div class="card-sub">&#49373;&#45380;&#50900;&#51068;&#51012; &#51077;&#47141;&#54616;&#47732;<br>&#45208;&#51032; &#51068;&#51452;&#50752; &#44592;&#51656;&#51012; &#50508;&#47140;&#46300;&#47140;&#50836;</div>
     <div class="fields">
-      <div class="field"><label>태어난 년도</label><input type="number" id="yy" placeholder="1995" min="1900" max="2025"></div>
-      <div class="field"><label>월</label><input type="number" id="mm" placeholder="3" min="1" max="12"></div>
-      <div class="field"><label>일</label><input type="number" id="dd" placeholder="15" min="1" max="31"></div>
+      <div class="field"><label>&#53468;&#50612;&#45238; &#45380;&#46020;</label><input type="number" id="yy" placeholder="1995" min="1900" max="2025"></div>
+      <div class="field"><label>&#50900;</label><input type="number" id="mm" placeholder="3" min="1" max="12"></div>
+      <div class="field"><label>&#51068;</label><input type="number" id="dd" placeholder="15" min="1" max="31"></div>
     </div>
-    <button class="calc-btn" onclick="calc()">일주 확인하기</button>
+    <button class="calc-btn" onclick="calc()">&#51068;&#51452; &#54869;&#51064;&#54616;&#44592;</button>
     <div class="err" id="err"></div>
   </div>
 
   <div class="result-wrap" id="resultWrap" style="display:none">
     <div class="res-top">
-      <div class="res-ilju-label">나의 일주</div>
+      <div class="res-ilju-label">&#45208;&#51032; &#51068;&#51452;</div>
       <div class="res-char" id="rChar"></div>
       <div class="res-full" id="rFull"></div>
     </div>
     <div class="res-body">
-      <div class="sec-label">기질 & 성향</div>
+      <div class="sec-label">&#44592;&#51656; &amp; &#49457;&#54693;</div>
       <div class="res-desc" id="rDesc"></div>
-      <div class="sec-label">키워드</div>
+      <div class="sec-label">&#53ค;&#50892;&#46300;</div>
       <div class="kw-row" id="rKws"></div>
       <div class="love-box">
-        <div class="love-label">2026 연애운 한줄</div>
+        <div class="love-label">2026 &#50672;&#50528;&#50868; &#54620;&#51904;</div>
         <div class="love-txt" id="rLove"></div>
       </div>
       <div class="divider"></div>
-      <div class="cta-txt">더 정확한 사주는 태어난 시간까지<br>함께 봐야 알 수 있어요</div>
-      <button class="cta-btn" <a href="https://sajoo.myblocks.kr" target="_blank" class="cta-btn">1:1 사주 상담 신청하기 →</a>>1:1 사주 상담 신청하기 →</button>
-      <button class="reset-btn" onclick="reset()">다시 입력하기</button>
+      <div class="cta-txt">&#45908; &#51221;&#54869;&#54620; &#49324;&#51452;&#45716; &#53468;&#50612;&#45234; &#49884;&#44036;&#44956;&#51648;<br>&#54632;&#44760; &#48264;&#50500; &#50508; &#49688; &#51080;&#50612;&#50836;</div>
+      <a href="https://sajoo.myblocks.kr" class="cta-btn">1:1 &#49324;&#51452; &#49345;&#45813; &#49888;&#52397;&#54616;&#44592; &rarr;</a>
+      <button class="reset-btn" onclick="reset()">&#45796;&#49884; &#51077;&#47141;&#54616;&#44592;</button>
     </div>
   </div>
 
-  <div class="note">* 태어난 시간 미포함 기준이에요<br>자시(밤 11시~새벽 1시) 출생자는 오차 있을 수 있어요</div>
+  <div class="note">* &#53468;&#50612;&#45234; &#49884;&#44036; &#48120;&#54252;&#54632; &#44592;&#51456;&#51060;&#50836;<br>&#51088;&#49884;(&#48260; 11&#49884;~&#49352;&#48263; 1&#49884;) &#52636;&#49373;&#51088;&#45716; &#50724;&#جا&#44032; &#51080;&#50612;&#50836;</div>
 
 </div>
 </div>
 
 <script>
-const 천간=['갑','을','병','정','무','기','경','신','임','계'];
-const 지지=['자','축','인','묘','진','사','오','미','신','유','술','해'];
-const data={
+var cg=['갑','을','병','정','무','기','경','신','임','계'];
+var jj=['자','축','인','묘','진','사','오','미','신','유','술','해'];
+var data={
   '갑':{desc:'새로운 길을 스스로 여는 타입이에요. 주도적이고 추진력이 강하며, 한번 마음먹으면 끝까지 밀고 나가는 힘이 있어요.',kw:['주도적','추진력','새로운 시작'],love:'2026년, 용기 있게 먼저 다가가는 사람에게 인연이 찾아와요'},
   '을':{desc:'유연하고 섬세한 감수성을 가졌어요. 관계에서 깊은 배려를 보여주고, 상황에 맞게 자연스럽게 스며드는 능력이 뛰어나요.',kw:['섬세함','배려','유연함'],love:'2026년, 편안한 일상 속에서 자연스럽게 인연이 깊어져요'},
   '병':{desc:'주변을 환하게 밝히는 에너지를 가졌어요. 밝고 따뜻한 성격으로 어디서든 존재감이 빛나고, 표현력이 풍부해요.',kw:['활기','따뜻함','표현력'],love:'2026년, 감정을 솔직하게 표현할수록 사랑이 커져요'},
@@ -102,46 +108,50 @@ const data={
   '계':{desc:'섬세하고 직관적인 내면의 소유자예요. 감수성이 풍부하고 창의적이며, 남들이 보지 못하는 것을 느끼는 능력이 있어요.',kw:['직관','감수성','창의력'],love:'2026년, 감정에 솔직해질수록 원하는 사랑에 가까워져요'}
 };
 
-const CONSULT_URL = 'https://sajoo.myblocks.kr';
-
-function openConsult(){
- location.href = CONSULT_URL;
-}
-
 function getIlju(y,m,d){
-  const diff=Math.floor((new Date(y,m-1,d)-new Date(1900,0,31))/(864e5));
-  if(diff<0)return null;
-  return{천간:천간[((diff%10)+10)%10],지지:지지[((diff%12)+12)%12]};
+  var diff=Math.floor((new Date(y,m-1,d)-new Date(1900,0,31))/86400000);
+  if(diff<0) return null;
+  return {c:cg[((diff%10)+10)%10], j:jj[((diff%12)+12)%12]};
 }
 
 function calc(){
-  const y=parseInt(document.getElementById('yy').value);
-  const m=parseInt(document.getElementById('mm').value);
-  const d=parseInt(document.getElementById('dd').value);
-  const err=document.getElementById('err');
+  var y=parseInt(document.getElementById('yy').value);
+  var m=parseInt(document.getElementById('mm').value);
+  var d=parseInt(document.getElementById('dd').value);
+  var err=document.getElementById('err');
   err.textContent='';
   if(!y||!m||!d||y<1900||y>2025||m<1||m>12||d<1||d>31){
-    err.textContent='올바른 생년월일을 입력해주세요.';return;
+    err.textContent='올바른 생년월일을 입력해주세요.';
+    return;
   }
-  const r=getIlju(y,m,d);
+  var r=getIlju(y,m,d);
   if(!r){err.textContent='계산할 수 없는 날짜예요.';return;}
-  const ilju=r.천간+r.지지;
-  const d2=data[r.천간];
+  var ilju=r.c+r.j;
+  var d2=data[r.c];
   document.getElementById('rChar').textContent=ilju;
   document.getElementById('rFull').textContent=ilju+' 일주';
   document.getElementById('rDesc').textContent=d2.desc;
   document.getElementById('rLove').textContent=d2.love;
-  const kDiv=document.getElementById('rKws');
+  var kDiv=document.getElementById('rKws');
   kDiv.innerHTML='';
-  d2.kw.forEach(k=>{const s=document.createElement('span');s.className='kw';s.textContent=k;kDiv.appendChild(s);});
+  d2.kw.forEach(function(k){
+    var s=document.createElement('span');
+    s.className='kw';
+    s.textContent=k;
+    kDiv.appendChild(s);
+  });
   document.getElementById('inputCard').style.display='none';
   document.getElementById('resultWrap').style.display='block';
 }
 
 function reset(){
-  ['yy','mm','dd'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('yy').value='';
+  document.getElementById('mm').value='';
+  document.getElementById('dd').value='';
   document.getElementById('err').textContent='';
   document.getElementById('resultWrap').style.display='none';
   document.getElementById('inputCard').style.display='block';
 }
 </script>
+</body>
+</html>
