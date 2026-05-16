@@ -1,0 +1,181 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{min-height:640px;background:#F5F0F7;padding:2rem 1rem}
+.wrap{max-width:380px;margin:0 auto}
+.brand-area{text-align:center;margin-bottom:1.5rem}
+.brand-dot{width:36px;height:36px;border-radius:50%;background:#FBEAF0;margin:0 auto 7px;display:flex;align-items:center;justify-content:center}
+.brand-dot i{font-size:18px;color:#993556}
+.brand-name{font-size:11px;letter-spacing:.12em;color:#888780}
+.input-card{background:#fff;border-radius:20px;border:0.5px solid rgba(0,0,0,.07);padding:1.75rem 1.5rem;margin-bottom:10px}
+.card-title{font-size:21px;font-weight:500;color:#2C2C2A;text-align:center;margin-bottom:4px}
+.card-sub{font-size:13px;color:#5F5E5A;text-align:center;line-height:1.65;margin-bottom:1.5rem}
+.fields{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.field label{font-size:11px;color:#888780;display:block;margin-bottom:5px;padding-left:1px}
+.field input{width:100%;padding:10px 11px;font-size:15px;border-radius:10px;border:0.5px solid rgba(0,0,0,.12);background:#FAF8FB;color:#2C2C2A;outline:none;transition:border-color .15s}
+.field input:focus{border-color:#D4537E}
+.calc-btn{width:100%;padding:13px;font-size:15px;font-weight:500;border:none;border-radius:12px;background:#D4537E;color:#fff;cursor:pointer;letter-spacing:.02em;transition:opacity .15s}
+.calc-btn:hover{opacity:.87}
+.calc-btn:active{opacity:.72}
+.err{font-size:12px;color:#A32D2D;text-align:center;margin-top:8px;min-height:16px}
+.result-wrap{margin-bottom:10px;border-radius:20px;overflow:hidden;border:0.5px solid rgba(0,0,0,.07)}
+.res-top{background:#FBEAF0;padding:1.75rem 1.5rem;text-align:center}
+.res-ilju-label{font-size:10px;letter-spacing:.12em;color:#993556;margin-bottom:10px}
+.res-char{font-size:54px;font-weight:500;color:#72243E;line-height:1;margin-bottom:7px}
+.res-full{font-size:14px;font-weight:500;color:#993556}
+.res-body{background:#fff;padding:1.5rem}
+.sec-label{font-size:10px;letter-spacing:.08em;color:#888780;margin-bottom:7px}
+.res-desc{font-size:13px;color:#2C2C2A;line-height:1.75;margin-bottom:1.1rem}
+.kw-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+.kw{font-size:12px;padding:4px 13px;border-radius:99px;background:#FBEAF0;color:#72243E;font-weight:500}
+.love-box{background:#FAF8FB;border-radius:12px;padding:12px 14px;margin-bottom:1.25rem}
+.love-label{font-size:10px;letter-spacing:.08em;color:#888780;margin-bottom:5px}
+.love-txt{font-size:13px;color:#2C2C2A;line-height:1.65}
+.divider{height:0.5px;background:rgba(0,0,0,.07);margin-bottom:1.25rem}
+.cta-txt{font-size:12px;color:#5F5E5A;text-align:center;line-height:1.65;margin-bottom:11px}
+.cta-btn{width:100%;padding:11px;border-radius:11px;border:none;background:#D4537E;color:#fff;font-size:13px;font-weight:500;cursor:pointer;letter-spacing:.02em;transition:opacity .15s;margin-bottom:8px}
+.cta-btn:hover{opacity:.87}
+.reset-btn{width:100%;padding:10px;border-radius:11px;border:0.5px solid rgba(0,0,0,.12);background:transparent;color:#5F5E5A;font-size:13px;cursor:pointer;transition:background .15s}
+.reset-btn:hover{background:#F5F0F7}
+.note{font-size:11px;color:#888780;text-align:center;line-height:1.65;padding:0 4px}
+</style>
+
+<div class="page">
+<div class="wrap">
+
+  <div class="brand-area">
+    <div class="brand-dot"><i class="ti ti-moon" aria-hidden="true"></i></div>
+    <div class="brand-name">이화사주</div>
+  </div>
+
+  <div class="input-card" id="inputCard">
+    <div class="card-title">내 일주 찾기</div>
+    <div class="card-sub">생년월일을 입력하면<br>나의 일주와 기질을 알려드려요</div>
+    <div class="fields">
+      <div class="field"><label>태어난 년도</label><input type="number" id="yy" placeholder="1995" min="1900" max="2025"></div>
+      <div class="field"><label>월</label><input type="number" id="mm" placeholder="3" min="1" max="12"></div>
+      <div class="field"><label>일</label><input type="number" id="dd" placeholder="15" min="1" max="31"></div>
+    </div>
+    <button class="calc-btn" onclick="calc()">일주 확인하기</button>
+    <div class="err" id="err"></div>
+  </div>
+
+  <div class="result-wrap" id="resultWrap" style="display:none">
+    <div class="res-top">
+      <div class="res-ilju-label">나의 일주</div>
+      <div class="res-char" id="rChar"></div>
+      <div class="res-full" id="rFull"></div>
+    </div>
+    <div class="res-body">
+      <div class="sec-label">기질 & 성향</div>
+      <div class="res-desc" id="rDesc"></div>
+      <div class="sec-label">키워드</div>
+      <div class="kw-row" id="rKws"></div>
+      <div class="love-box">
+        <div class="love-label">2026 연애운 한줄</div>
+        <div class="love-txt" id="rLove"></div>
+      </div>
+      <div class="divider"></div>
+      <div class="cta-txt">더 정확한 사주는 태어난 시간까지<br>함께 봐야 알 수 있어요</div>
+      <button class="cta-btn" onclick="sendPrompt('이화사주 1:1 상담 신청하고 싶어요')">1:1 사주 상담 신청하기 →</button>
+      <button class="reset-btn" onclick="reset()">다시 입력하기</button>
+    </div>
+  </div>
+
+  <div class="note">* 태어난 시간 미포함 기준이에요<br>자시(밤 11시~새벽 1시) 출생자는 오차 있을 수 있어요</div>
+
+</div>
+</div>
+
+<script>
+const 천간=['갑','을','병','정','무','기','경','신','임','계'];
+const 지지=['자','축','인','묘','진','사','오','미','신','유','술','해'];
+const data={
+  '갑':{
+    desc:'새로운 길을 스스로 여는 타입이에요. 주도적이고 추진력이 강하며, 한번 마음먹으면 끝까지 밀고 나가는 힘이 있어요.',
+    kw:['주도적','추진력','새로운 시작'],
+    love:'2026년, 용기 있게 먼저 다가가는 사람에게 인연이 찾아와요'
+  },
+  '을':{
+    desc:'유연하고 섬세한 감수성을 가졌어요. 관계에서 깊은 배려를 보여주고, 상황에 맞게 자연스럽게 스며드는 능력이 뛰어나요.',
+    kw:['섬세함','배려','유연함'],
+    love:'2026년, 편안한 일상 속에서 자연스럽게 인연이 깊어져요'
+  },
+  '병':{
+    desc:'주변을 환하게 밝히는 에너지를 가졌어요. 밝고 따뜻한 성격으로 어디서든 존재감이 빛나고, 표현력이 풍부해요.',
+    kw:['활기','따뜻함','표현력'],
+    love:'2026년, 감정을 솔직하게 표현할수록 사랑이 커져요'
+  },
+  '정':{
+    desc:'섬세하고 진심 어린 감성의 소유자예요. 내면의 불꽃처럼 뜨거운 마음을 가지고 있고, 예술적 감각이 남달라요.',
+    kw:['감성','진심','예술적'],
+    love:'2026년, 마음이 통하는 깊은 인연을 만날 가능성이 높아요'
+  },
+  '무':{
+    desc:'든든하고 포용력 넘치는 대지 같은 존재예요. 주변 사람들에게 자연스럽게 신뢰감을 주고, 큰 그림을 볼 줄 알아요.',
+    kw:['포용력','신뢰','안정감'],
+    love:'2026년, 신뢰가 쌓일수록 관계가 자연스럽게 발전해요'
+  },
+  '기':{
+    desc:'꼼꼼하고 성실한 실용주의자예요. 작은 것 하나도 허투루 넘기지 않는 집중력과, 묵묵히 쌓아가는 힘이 있어요.',
+    kw:['성실','꼼꼼함','실용적'],
+    love:'2026년, 꾸준함이 사랑을 만들어요. 급하지 않아도 괜찮아요'
+  },
+  '경':{
+    desc:'결단력 있고 원칙이 명확한 타입이에요. 옳고 그름에 대한 기준이 뚜렷하고, 한번 세운 목표는 흔들리지 않아요.',
+    kw:['결단력','원칙','의지'],
+    love:'2026년, 결단이 필요한 순간에 용기를 내면 새 인연이 열려요'
+  },
+  '신':{
+    desc:'세련되고 예리한 감각을 가졌어요. 완성도를 중시하고, 아름다움과 질서를 사랑하는 심미안이 있어요.',
+    kw:['완성도','예리함','세련됨'],
+    love:'2026년, 나를 진심으로 알아봐 주는 특별한 인연이 가까이 있어요'
+  },
+  '임':{
+    desc:'깊고 넓은 물처럼 지혜롭고 포용적이에요. 유연한 사고로 다양한 상황을 헤쳐나가는 통찰력이 뛰어나요.',
+    kw:['지혜','유연함','통찰'],
+    love:'2026년, 예상치 못한 곳에서 깊은 인연이 시작될 수 있어요'
+  },
+  '계':{
+    desc:'섬세하고 직관적인 내면의 소유자예요. 감수성이 풍부하고 창의적이며, 남들이 보지 못하는 것을 느끼는 능력이 있어요.',
+    kw:['직관','감수성','창의력'],
+    love:'2026년, 감정에 솔직해질수록 원하는 사랑에 가까워져요'
+  }
+};
+
+function getIlju(y,m,d){
+  const diff=Math.floor((new Date(y,m-1,d)-new Date(1900,0,31))/(864e5));
+  if(diff<0)return null;
+  return{천간:천간[((diff%10)+10)%10],지지:지지[((diff%12)+12)%12]};
+}
+
+function calc(){
+  const y=parseInt(document.getElementById('yy').value);
+  const m=parseInt(document.getElementById('mm').value);
+  const d=parseInt(document.getElementById('dd').value);
+  const err=document.getElementById('err');
+  err.textContent='';
+  if(!y||!m||!d||y<1900||y>2025||m<1||m>12||d<1||d>31){
+    err.textContent='올바른 생년월일을 입력해주세요.';return;
+  }
+  const r=getIlju(y,m,d);
+  if(!r){err.textContent='계산할 수 없는 날짜예요.';return;}
+  const ilju=r.천간+r.지지;
+  const d2=data[r.천간];
+  document.getElementById('rChar').textContent=ilju;
+  document.getElementById('rFull').textContent=ilju+' 일주';
+  document.getElementById('rDesc').textContent=d2.desc;
+  document.getElementById('rLove').textContent=d2.love;
+  const kDiv=document.getElementById('rKws');
+  kDiv.innerHTML='';
+  d2.kw.forEach(k=>{const s=document.createElement('span');s.className='kw';s.textContent=k;kDiv.appendChild(s);});
+  document.getElementById('inputCard').style.display='none';
+  document.getElementById('resultWrap').style.display='block';
+}
+
+function reset(){
+  ['yy','mm','dd'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('err').textContent='';
+  document.getElementById('resultWrap').style.display='none';
+  document.getElementById('inputCard').style.display='block';
+}
+</script>
